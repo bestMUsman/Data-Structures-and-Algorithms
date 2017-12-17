@@ -29,4 +29,24 @@ function LinkedList() {
         }
         length++;
     };
+
+    this.remove = function (e) {
+        if (head.element === e) {
+            head = head.next;
+            length--;
+            return;
+        } else {
+            let currentNode = head;
+            let prevNode;
+            while (currentNode.next) {
+                if (currentNode.element === e) {
+                    break;
+                }
+                prevNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            prevNode.next = currentNode.next;
+            return;
+        }
+    };
 }
