@@ -65,4 +65,21 @@ function LinkedList() {
         }
         return -1;
     };
+
+    this.elementAt = function (index) {
+        if (head === null) {
+            return undefined;
+        } else {
+            let currentNode = head;
+            let count = -1;
+            while (currentNode) {
+                count++;
+                if (count === index) {
+                    return currentNode.element;
+                }
+                currentNode = currentNode.next;
+            }
+            return undefined;
+        }
+    };
 }
