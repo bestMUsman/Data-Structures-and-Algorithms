@@ -115,7 +115,6 @@ function LinkedList() {
         let prevNode;
         let node = new Node(e);
         if (!currentNode && index > 0) return false;
-    
         for (let i = 0; i < length + 1; i++) {
             if (index === 0) {
                 node.next = currentNode;
@@ -123,20 +122,32 @@ function LinkedList() {
                 length++;
                 return;
             }
-    
+
             if (i === index) {
                 prevNode.next = node;
                 node.next = currentNode;
                 length++;
                 return;
             }
-    
+
             if (!currentNode) return false;
-    
             prevNode = currentNode;
             currentNode = currentNode.next;
         }
-    
         return false;
+    };
+
+    this.reverse = function () {
+        let currentNode = head;
+        let savedNode;
+        let prevNode;
+        while (currentNode) {
+            savedNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = savedNode;
+        }
+        head = prevNode;
+        return head;
     };
 }
