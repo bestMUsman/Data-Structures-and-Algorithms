@@ -109,4 +109,34 @@ function LinkedList() {
             return null;
         }
     };
+
+    this.addAt = function (index, e) {
+        let currentNode = head;
+        let prevNode;
+        let node = new Node(e);
+        if (!currentNode && index > 0) return false;
+    
+        for (let i = 0; i < length + 1; i++) {
+            if (index === 0) {
+                node.next = currentNode;
+                head = node;
+                length++;
+                return;
+            }
+    
+            if (i === index) {
+                prevNode.next = node;
+                node.next = currentNode;
+                length++;
+                return;
+            }
+    
+            if (!currentNode) return false;
+    
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+        }
+    
+        return false;
+    };
 }
