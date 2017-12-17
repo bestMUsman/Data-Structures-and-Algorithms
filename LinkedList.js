@@ -82,4 +82,31 @@ function LinkedList() {
             return undefined;
         }
     };
+
+    this.removeAt = function (index) {
+        if (head === null) {
+            return null;
+        } else if (index === 0) {
+            let item = head;
+            head = head.next;
+            length--;
+            return item.element;
+        } else {
+            let currentNode = head;
+            let count = -1;
+            let prevNode;
+            while (currentNode) {
+                count++;
+                if (count === index) {
+                    let item = currentNode;
+                    prevNode.next = currentNode.next;
+                    length--;
+                    return item.element;
+                }
+                prevNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            return null;
+        }
+    };
 }
