@@ -53,4 +53,16 @@ function LinkedList() {
     this.isEmpty = function () {
         return length === 0;
     };
+
+    this.indexOf = function (element) {
+        let currentNode = head;
+        for (let i = 0; i < length; i++) {
+            if (currentNode.element === element) {
+                return i;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
+        return -1;
+    };
 }
