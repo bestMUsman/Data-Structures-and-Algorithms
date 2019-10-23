@@ -1,4 +1,4 @@
-let arr = [1, 2, 3, [4, 5, 6,7,8,9,10,[11,12,[13,[15,[17]]]]], 18];
+let arr = [1, 2, 3, [4, 5, 6,7,8,9,10,[11,12,[13,[14,[[15, 16]]]]]], 17];
 
 // Solution #1: (This might not be compatible with all browsers)
 const flattenArr = arr => arr.flat(Infinity);
